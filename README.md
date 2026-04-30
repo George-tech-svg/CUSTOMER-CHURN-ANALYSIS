@@ -20,7 +20,7 @@ I built an **interactive 4-page Power BI dashboard** that reveals exactly why cu
 ##  Dashboard Preview
 
 ### Page 1: Executive KPI Summary
-[Executive KPI Dashboard](EXECUTIVE KPI.png)
+![EXUCUTIVE SUMMERY ](EXCUTIVE_KPI.png)
 | Metric | Value |
 |--------|-------|
 | Total Customers | 7,043 |
@@ -30,7 +30,8 @@ I built an **interactive 4-page Power BI dashboard** that reveals exactly why cu
 | Avg Tenure (Churned) | 17.98 months |
 
 ### Page 2: Why Churn Happens
-![Churn Analysis](image2.png)
+![Churn Analysis](CHURN_DRIVERS_1.png)
+![Churn Analysis](CHURN_DRIVERS_2.png)
 
 **Key insights from this page:**
 -  63% of churn happens in first 12 months
@@ -38,7 +39,7 @@ I built an **interactive 4-page Power BI dashboard** that reveals exactly why cu
 -  Electronic check users churn 4x more than auto-pay
 
 ### Page 3: Contract Impact Matrix
-![Contract Analysis](image3.png)
+![Contract Analysis](RISK_SEGMENTATION.png)
 
 | Contract Type | Churned Customers | Churn Rate |
 |--------------|------------------|------------|
@@ -49,7 +50,7 @@ I built an **interactive 4-page Power BI dashboard** that reveals exactly why cu
 **Month-to-month customers are 15x more likely to churn!**
 
 ### Page 4: Action Plan
-![Recommendations](image4.png)
+![Recommendations](ACTION_PLAN.png)
 
 Data-backed recommendations to save over **$1.2 Million annually**
 
