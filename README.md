@@ -1,138 +1,154 @@
-# Customer Churn Analysis
+# Telco Customer Churn Analysis – Power BI Dashboard
 
-## Power BI Dashboard | Telecom Industry | Data Analytics Portfolio
+## Welcome to My Data Analytics Portfolio Project
+*"Turning raw customer data into million-dollar retention strategies"*
 
 ---
 
 ## Project Overview
+Imagine you run a phone and internet company with **7,043 customers**. Every month, customers leave to join competitors. That’s called **churn** – and it’s a big problem because finding new customers costs **5x more** than keeping existing ones.
 
-**Goal:** Identify why customers leave a telecom company and how to stop it.
+**This project answers one critical question:**
+> *"Why are customers leaving, and how can we stop it?"*
 
-**The Problem:** Acquiring new customers costs 5x more than retaining existing ones. This analysis focuses on month-to-month contract customers who show a 42.71% churn rate.
-
-**The Solution:** An interactive Power BI dashboard that reveals churn patterns, highlights high-risk customers, and provides data-backed retention strategies.
-
-**Result:** Identified over $1.45M in annual revenue at risk with clear actions to reduce churn.
+I built an **interactive 4-page Power BI dashboard** that reveals exactly why customers leave, when they leave, and how much money the company is losing.
 
 ---
 
-## Key Metrics (Filtered: Month-to-Month Contract)
+## Dashboard Preview
 
-| Metric | Value |
-|--------|-------|
-| Total Customers (Month-to-Month) | 3,875 |
-| Churn Rate (Month-to-Month) | 42.71% |
-| Monthly Revenue Lost | $120,850 |
-| Total Revenue Lost | $1.93 Million |
-| Average Tenure of Churned Customers | 14.02 months |
+### Page 1: Executive KPI Summary
+![Executive Dashboard](image1.png)
 
----
+| Metric                | Value        |
+|-----------------------|--------------|
+| Total Customers       | 7,043        |
+| Churn Rate            | 26.54%       |
+| Monthly Revenue Lost  | $139,130     |
+| Total Revenue Lost    | $2.86M       |
+| Avg Tenure (Churned)  | 17.98 months |
 
-## Dashboard Pages
+### Page 2: Why Churn Happens
+![Churn Analysis](image2.png)
 
-### Page 1: Executive KPI Summary (Month-to-Month Focus)
-
-High-level metrics showing the severe impact of month-to-month contracts:
-- 3,875 customers on month-to-month contracts
-- 42.71% churn rate among these customers
-- $120,850 monthly revenue lost
-- $1.93 million total lifetime revenue lost
-- Average churned customer stayed only 14 months
-
-Filters available: Gender, Senior Status, Contract Type
-
-### Page 2: Churn Driver Analysis
-
-Visualizations showing:
-- Tenure vs Churn: Highest churn occurs in first 12 months
-- Churn by Contract Type: Month-to-month customers drive majority of churn
-- Churn by Payment Method: Electronic check users show highest churn rates
-- Churn by Internet Service: Fiber optic customers churn more than DSL
+**Key insights:**
+- 63% of churn happens in first 12 months  
+- Customers without Online Security churn 3x more  
+- Electronic check users churn 4x more than auto-pay  
 
 ### Page 3: Contract Impact Matrix
+![CUSTOMOER-CHURN-ANALYSIS](RISK SEGMENTATION.png)
 
-| Contract Type | Total Customers | Churned Customers | Churn Rate |
-|--------------|----------------|------------------|------------|
-| Month-to-month | 3,875 | 1,655 | 42.71% |
-| One year | 1,473 | 166 | 11.27% |
-| Two year | 1,695 | 48 | 2.83% |
+| Contract Type   | Churned Customers | Churn Rate |
+|-----------------|-------------------|------------|
+| Month-to-month  | 1,655             | 42.7%      |
+| One year        | 166               | 11.3%      |
+| Two year        | 48                | 2.8%       |
 
-**Key finding:** Month-to-month customers are 15 times more likely to churn than two-year contract customers.
+**Insight:** Month-to-month customers are 15x more likely to churn.
 
-### Page 4: High-Risk Customer Identification
+### Page 4: Action Plan
+![Recommendations](image4.png)
 
-The dashboard flags individual high-risk customers based on:
-- Contract type (Month-to-month = High Risk)
-- Payment method (Electronic check = High Risk)
-- Security services (No online security = High Risk)
-
-Sample high-risk customers identified:
-- 0129-KPTWJ: Month-to-month contract, 72 months tenure, $94.65 monthly charge
-
-### Page 5: Demographic Analysis
-
-Churn rate breakdown by:
-- Gender: Female vs Male churn patterns
-- Senior Status: Senior vs Non-Senior churn rates
-- Combination views showing churn by gender and senior status simultaneously
+Data-backed recommendations to save over **$1.2M annually**.
 
 ---
 
-## Key Insights
-
-**Insight 1: Month-to-Month Contract Crisis**
-42.71% of month-to-month customers churn compared to only 2.83% of two-year contract customers. This is the single biggest churn driver.
-
-**Insight 2: First Year is Critical**
-Most churn occurs within the first 12 months of tenure. Customers who stay beyond one year are significantly more likely to remain loyal.
-
-**Insight 3: Revenue at Risk**
-Month-to-month customers alone represent $1.93 million in total revenue lost and $120,850 in monthly recurring revenue lost.
-
-**Insight 4: High-Risk Customers Can be Identified**
-The dashboard flags individual high-risk customers using contract type, payment method, and security service data.
-
-**Insight 5: Demographics Matter**
-Churn rates vary significantly by gender and senior status, allowing for targeted retention campaigns.
+## Dataset
+**Source:** IBM Telco Customer Churn dataset  
+**Rows:** 7,043 customers  
+**Columns:** 21 features (demographics, services, billing, churn status)
 
 ---
 
-## Technical Skills Demonstrated
-
-| Skill | Application |
-|-------|-------------|
-| Power BI | Built multi-page interactive dashboard with slicers and filters |
-| Power Query | Cleaned TotalCharges column and handled data type issues |
-| DAX | Created custom measures including Churn Rate, Revenue Lost, Risk Score |
-| Calculated Columns | Created Tenure Group, Senior Status, High Risk Customer flag |
-| Data Storytelling | Translated analysis into actionable business recommendations |
+## Data Cleaning (Power Query)
+| Issue | Solution |
+|-------|----------|
+| `TotalCharges` had nulls for new customers | Replaced with 0 |
+| `TotalCharges` imported as text | Converted to decimal |
+| `SeniorCitizen` was 0/1 | Created readable "Senior Status" |
+| Tenure numeric only | Created grouped "Tenure Group" |
 
 ---
 
-## DAX Measures Created
-
+## Calculated Columns
 ```dax
-// Core Measures
-Total Customers = COUNTROWS('Table')
-
-Churned Customers = CALCULATE(COUNTROWS('Table'), [Churn] = "Yes")
-
-Churn Rate % = DIVIDE([Churned Customers], [Total Customers], 0) * 100
-
-Monthly Revenue Lost = CALCULATE(SUM([MonthlyCharges]), [Churn] = "Yes")
-
-Total Revenue Lost = CALCULATE(SUM([TotalCharges]), [Churn] = "Yes")
-
-Avg Tenure (Churned) = CALCULATE(AVERAGE([tenure]), [Churn] = "Yes")
-
-// Risk Score Measure
-Risk Score = 
-AVERAGEX('Table',
-    SWITCH([Contract], "Month-to-month", 10, "One year", 5, "Two year", 0) +
-    SWITCH([PaymentMethod], "Electronic check", 8, "Mailed check", 4, 0) +
-    SWITCH([OnlineSecurity], "No", 7, 0)
+Tenure Group = 
+SWITCH(
+    TRUE(),
+    [tenure] <= 12, "0-12 Months",
+    [tenure] <= 24, "13-24 Months",
+    [tenure] <= 48, "25-48 Months",
+    "48+ Months"
 )
-
-// Calculated Column for High Risk Flag
+dax
+Senior Status = 
+IF([SeniorCitizen] = 1, "Senior", "Non-Senior")
+dax
 High Risk Customer = 
-IF([Contract] = "Month-to-month" && [PaymentMethod] = "Electronic check", "High Risk", "Low Risk")
+IF(
+    [Contract] = "Month-to-month" &&
+    [InternetService] = "Fiber optic" &&
+    [PaymentMethod] = "Electronic check",
+    "High Risk",
+    "Low Risk"
+)
+DAX Measures (Highlights)
+Total Customers: 7,043
+
+Churned Customers: 1,869
+
+Churn Rate: 26.54%
+
+Monthly Revenue Lost: $139,130
+
+Total Revenue Lost: $2.86M
+
+Avg Tenure (Churned): 17.98 months
+
+Risk Score: Advanced measure combining contract, payment, and security
+
+Business Impact
+Recommendation	Monthly Savings
+Convert 10% of MTM to 1-year contracts	$29,100
+Switch 20% of Electronic check to auto-pay	$28,800
+Bundle security for fiber MTM customers	$20,250
+Improve first-year retention by 10%	$16,125
+Total Monthly Savings	$94,275
+Annual Savings	$1,131,300
+
+
+Tools Used
+Power BI Desktop – dashboard creation
+
+Power Query Editor – data cleaning
+
+DAX – measures and calculated columns
+
+Excel – initial data exploration
+
+Files in Repository
+WA_Fn-UseC_-Telco-Customer-Churn.csv – raw dataset
+
+Telco_Churn_Dashboard.pbix – Power BI file
+
+image1.png – KPI Summary
+
+image2.png – Churn Analysis
+
+image3.png – Contract Matrix
+
+image4.png – Recommendations
+
+README.md – documentation
+
+Key Insights Summary
+First Year Crisis: 63% of churn happens in first 12 months
+
+Contract Length Matters: Month-to-month churn = 42.7% vs 2.8% for two-year contracts
+
+Payment Method Warning: Electronic check retention = 55% vs 85% for credit card users
+
+Security Saves Customers: No Online Security = 3x higher churn
+
+Revenue Impact: $139,130 lost monthly, $2.86M lifetime value lost
