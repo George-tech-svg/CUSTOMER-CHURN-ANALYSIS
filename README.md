@@ -28,6 +28,8 @@ I built an **interactive 4-page Power BI dashboard** that reveals exactly why cu
 | Total Revenue Lost    | $2.86M       |
 | Avg Tenure (Churned)  | 17.98 months |
 
+---
+
 ### Page 2: Why Churn Happens
 ![Churn Analysis](image2.png)
 
@@ -36,8 +38,10 @@ I built an **interactive 4-page Power BI dashboard** that reveals exactly why cu
 - Customers without Online Security churn 3x more  
 - Electronic check users churn 4x more than auto-pay  
 
+---
+
 ### Page 3: Contract Impact Matrix
-![CUSTOMOER-CHURN-ANALYSIS](RISK SEGMENTATION.png)
+![Customer Churn Analysis](RISK SEGMENTATION.png)
 
 | Contract Type   | Churned Customers | Churn Rate |
 |-----------------|-------------------|------------|
@@ -47,17 +51,38 @@ I built an **interactive 4-page Power BI dashboard** that reveals exactly why cu
 
 **Insight:** Month-to-month customers are 15x more likely to churn.
 
+---
+
 ### Page 4: Action Plan
 ![Recommendations](image4.png)
 
-Data-backed recommendations to save over **$1.2M annually**.
+## Recommendations
+### 1. Month-to-Month Contract Crisis
+- 75% of churn comes from MTM customers  
+- Offer $10/month discount for switching to 1-year contracts  
+- **Potential savings:** $140,000+ monthly  
+
+### 2. Electronic Check Payment Problem
+- Customers paying via electronic check have 4x higher churn rate than auto-pay users  
+- Send SMS reminders 5 days before due date  
+- Offer $5 credit for switching to auto-pay  
+
+### 3. Security Services = Retention
+- Customers without Online Security churn 3x more  
+- Bundle **Tech Support + Security** for $10/month  
+- Target MTM fiber customers first  
+
+### 4. First 12 Months are Critical
+- 60% of churn happens in the first year  
+- Implement a **VIP Onboarding Program**  
+- Monthly check-in calls at months 3, 6, and 9  
 
 ---
 
 ## Dataset
-**Source:** IBM Telco Customer Churn dataset  
-**Rows:** 7,043 customers  
-**Columns:** 21 features (demographics, services, billing, churn status)
+- **Source:** IBM Telco Customer Churn dataset  
+- **Rows:** 7,043 customers  
+- **Columns:** 21 features (demographics, services, billing, churn status)  
 
 ---
 
